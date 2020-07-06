@@ -139,7 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.c" />
+    <ClCompile Include="plain256.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ref.h" />

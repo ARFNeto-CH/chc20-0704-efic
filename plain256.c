@@ -4,7 +4,7 @@
 #include "ref.h"
 
 
-int main()
+int mainx()
 {
 	char    palavra[30];
 	char* p = palavra;
@@ -16,7 +16,7 @@ int main()
 };
 
 
-int geramain(int argc, char** argv)
+int main(int argc, char** argv)
 {
 	FILE* saida = stdout;
 	int disco = 0; // gerou arquivo?
@@ -27,13 +27,15 @@ int geramain(int argc, char** argv)
 	};
 	int out = 1;
 	fprintf(saida, "\nconst char idx[256] =\n{\n\n");
-	for (int i = 0; i < 256; i = i + 1)
+	for (int i = 0; i < 255; i = i + 1)
 	{
 		fprintf(saida, "%3d, ", 0);
 		if (out % 16 == 0) fprintf(saida, " // %03d-%03d\n", out - 16, out - 1);
 		out += 1;
 	};
-	fprintf(saida, "  0\n\n}; // ARFNeto '20\n");
+	fprintf(saida, "  0   // %03d-%03d\n\n}; // ARFNeto '20\n",
+		out-16, out-1
+	);
 	if (disco)
 	{
 		fprintf(stderr, "\nGerado trecho de codigo em '%s'\n",
